@@ -3,7 +3,7 @@
     justify-items: center;
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: rgb(151, 198, 170);
+    background-color: rgb(98, 160, 100);
 }
 
 a {
@@ -12,6 +12,10 @@ a {
 
 ul {
     list-style-type: none;
+    display: flex;
+    gap: 30px;
 }
 
-
+.main {
+    padding-bottom: 20px;
+}
