@@ -8,12 +8,16 @@ function startGame(level = 1) {
     const H = canvas.height;
   
     // Player
-    let player = { x: W/2, y: H - 80, w: 40, h: 60, speed: 5, img: new Image() };
-    player.img.src = "./Images/HelperElf.png";
+    const playerImage = new Image();
+    playerImage.src = "./Images/HelperElf.png"
+    let player = { x: W/2, y: H - 400, w: 400, h: 400, speed: 5};
     let keys = {};
     let gameOver = false;
     let message = "";
-  
+    playerImage.onload = () => {
+      drawPlayer();
+    }
+
     // Houses configuration
     const houses = {
       1: { bg: "#8B5E3C", floor: "#3E1E0E", lightDecayRate: 0.05, numLayers: 5 },
@@ -180,16 +184,8 @@ function startGame(level = 1) {
       ctx.fill();
     }
   
-    function drawPlayer(){
-      ctx.fillStyle="#c0392b";
-      ctx.fillRect(player.x, player.y, player.w, player.h);
-      ctx.fillStyle="#e74c3c";
-      ctx.beginPath();
-      ctx.moveTo(player.x, player.y);
-      ctx.lineTo(player.x+player.w/2, player.y-15);
-      ctx.lineTo(player.x+player.w, player.y);
-      ctx.closePath();
-      ctx.fill();
+    function drawPlayer() {
+      ctx.drawImage(playerImage, player.x, player.y, player.w, player.h);
     }
   
     function drawTimer(){

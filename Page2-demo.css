@@ -97,3 +97,7 @@ h1 {
     padding-bottom: 10px;
     padding-top: 10px;
 }
+
+.video {
+    border: #390404 8px solid;
+}
