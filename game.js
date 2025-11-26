@@ -8,7 +8,8 @@ function startGame(level = 1) {
     const H = canvas.height;
   
     // Player
-    let player = { x: W/2, y: H - 80, w: 40, h: 60, speed: 5 };
+    let player = { x: W/2, y: H - 80, w: 40, h: 60, speed: 5, img: new Image() };
+    player.img.src = "./Images/HelperElf.png";
     let keys = {};
     let gameOver = false;
     let message = "";
