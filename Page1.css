@@ -10,7 +10,7 @@
 
 .navMenu {
     position: fixed;
-    top: 0;
+    top:0;
     left: 0;
     right: 0;
     background: rgba(227, 226, 220, 0.362);
@@ -58,12 +58,17 @@ body {
     color: #390404;
 }
 
+.mainHeader {
+    padding-bottom: 30px;
+    font-size: xxx-large;
+}
+
 .main {
     padding-bottom: 200px;
 }
 
 .mainImage {
-    width: 70%;
+    width: 50%;
     height: auto;
     border: 5px solid rgb(53, 16, 16);
 }
