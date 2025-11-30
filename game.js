@@ -1,5 +1,3 @@
-// game.js - Elf Fixer Game: Cozy houses, horizontal primary lights, star on top
-// Call startGame(level) to begin
 
 function startGame(level = 1) {
     const canvas = document.getElementById("gameCanvas");
@@ -10,7 +8,7 @@ function startGame(level = 1) {
     // Player
     const playerImage = new Image();
     playerImage.src = "./Images/HelperElf.png"
-    let player = { x: W/2, y: H - 400, w: 400, h: 400, speed: 5};
+    let player = { x: W/2, y: H - 500, w: 500, h: 450, speed: 5};
     let keys = {};
     let gameOver = false;
     let message = "";
@@ -34,11 +32,20 @@ function startGame(level = 1) {
       y: H - 440,
       width: 300,
       height: 400,
-      layers: []
+      layers: [],
     };
     treeImage.onload = () => {
       drawTree();
     }
+
+    const presentImage = new Image();
+    presentImage.src = "./Images/present.png";
+    let present = {
+      x: W/3 - 200,
+      y: H - 150,
+      width: 200,
+      height: 100,
+    };
   
     // Primary colors for lights
     const primaryColors = ["#ff0000", "#0000ff", "#ffff00", "#00ff00"]; // red, blue, yellow, green
@@ -46,7 +53,7 @@ function startGame(level = 1) {
     // Create horizontal light rows (skip bottom row to avoid touching floor)
     for (let i = 0; i < house.numLayers - 1; i++) {
       const rowY = tree.y + i * (tree.height / (house.numLayers - 1));
-      const rowWidth = (i + 1) / house.numLayers * tree.width;
+      const rowWidth = (i ) / house.numLayers * tree.width;
       const numLightsInRow = Math.max(3, Math.floor(rowWidth / 30));
       const rowLights = [];
       for (let j = 0; j < numLightsInRow; j++) {
@@ -112,21 +119,9 @@ function startGame(level = 1) {
     }
   
     // Draw house decorations
-    function drawHouseDecor(level) {
-      if(level === 1){
-        // Rug
-        ctx.fillStyle = "#D2691E";
-        ctx.fillRect(150, H - 40, 500, 20);
-        // Fireplace
-        ctx.fillStyle = "#FF8C00";
-        ctx.fillRect(50, H - 100, 80, 60);
-      } else if(level === 2){
-        // Darker rug
-        ctx.fillStyle = "#4B2E1E";
-        ctx.fillRect(100, H - 40, 600, 20);
-        // Small table
-        ctx.fillStyle = "#8B4513";
-        ctx.fillRect(600, H - 90, 50, 50);
+    function drawHouseDecor() {
+      if (presentImage.complete) {
+      ctx.drawImage(presentImage, present.x, present.y, present.width, present.height);
       }
     }
   
@@ -135,7 +130,7 @@ function startGame(level = 1) {
       ctx.fillRect(0, 0, W, H);
       ctx.fillStyle = house.floor;
       ctx.fillRect(0, H-60, W, 60);
-      drawHouseDecor(level);
+      drawHouseDecor();
     }
   
     function drawTree() {
