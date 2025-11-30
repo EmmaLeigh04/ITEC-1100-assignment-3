@@ -28,17 +28,11 @@
   </div>
   <a href="index.html" class="btn">Back to Home</a>
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const level = Number(params.get("level")) || 1;
+    const level = 1; 
     document.getElementById("levelLabel").textContent = level;
-    window.addEventListener("load", () => {
-      if (typeof startGame === "function") {
-        startGame(level);
-      } 
-      else {
-        console.error("startGame(level) not found — is game.js loaded?");
-      }
-    });
+    window.onload = function() {
+      startGame(level); 
+    };
   </script>
 
   <script src="game.js"></script>
