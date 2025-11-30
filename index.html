@@ -1,51 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Elf Fixer — Night Before Christmas</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>Elf Fixer — Night Before Christmas</h1>
-    <p class="tag">Help the elf fix Christmas tree lights before Santa arrives!</p>
-  </header>
+  <head>
+    <!-- Set the page title -->
+    <title>Litmas Holiday Fun</title>
 
-  <main>
-    <section class="hero">
-      <img src="assets/screenshot1.png" alt="Game screenshot" class="screenshot" />
+    <!-- Set the charset we're using to UTF-8 -->
+    <meta charset="UTF-8" />
 
-      <div class="actions">
-        <!-- These two links now always work -->
-        <a class="btn" href="game.html?level=1">Play House 1</a>
-        <a class="btn" href="game.html?level=2">Play House 2</a>
-      </div>
-    </section>
+    <!-- Set the screens default zoom / scale to 1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <section class="instructions">
-      <h2>How to Play</h2>
-      <ol>
-        <li>Use <strong>Left/Right</strong> arrows to move the elf.</li>
-        <li>Press <strong>Space</strong> to fix tree lights when you’re close to a tree.</li>
-        <li>Fix all lights before Santa arrives (watch the shrinking timer bar!).</li>
-        <li>If Santa arrives and lights are still broken → <strong>Game Over</strong>.</li>
-      </ol>
-    </section>
+    <!-- Specifies the document mode for Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <section class="demo">
-      <h2>Demo Video & Screenshots</h2>
-      <video controls width="480" src="assets/demo.mp4"></video>
+    <!-- This is where all of our awesome CSS code goes -->
+    <link rel="stylesheet" href="./Page1.css" />
 
-      <div class="screens">
-        <img src="assets/screenshot1.png" alt="Screenshot 1">
-        <img src="assets/screenshot2.png" alt="Screenshot 2">
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Credits: Andra Popescu & Emma Maxwell — 2024</p>
-  </footer>
-</body>
+    <!-- Set the Favicon  -->
+    <link rel="icon" href="./images/favicon/rocket.svg" type="image/svg+xml" />
+  </head>
+    <body>
+        <header class="header">
+            <p>litmasHolidayFun.ca</p>
+            <section class="headerNav">
+            <nav class="navBar">
+                <ul class="navMenu">
+                    <li class="link-1"><a href="./Page1.html">Home</a></li>
+                    <li class="link-2"><a href="./Page2-demo.html">Demo & Screenshots</a></li>
+                    <li class="link-3"><a href="./game.html">Game</a></li>
+                </ul>
+            </nav>
+        </section>
+        </header>
+        <main class="main">
+            <h1 class="mainHeader"> LitMas Holiday Fun</h1>
+            <p> Help santa's right hand Elf fix the Christmas Lights before Santa arrives!</p>
+            <br>
+            <a href="./game.html"><img class="mainImage" src="./images/christmas.jpg"></a>
+            <br>
+            <button class="demoButton" type="button">Demo</button>
+            <br> <br>
+            <section class="instructions">
+                <h2>Instructions</h2>
+                <br>
+                <ol>
+                  <li>Use <strong>Left/Right</strong> arrows to move the elf.</li>
+                  <br>
+                  <li>Press <strong>Space</strong> to fix tree lights when you are close to the object.</li>
+                  <br>
+                  <li>Fix all lights before Santa arrives (watch the shrinking timer bar!).</li>
+                  <br>
+                  <li>If Santa arrives and lights are still broken → <strong>Game Over</strong>.</li>
+                </ol>
+              </section>
+        </main>
+        <footer class="footer">
+            <h2 class="footerHeader">Credits</h2>
+            <p>Gameplay and Game Design by Andra Popescu and Emma Maxwell</p>
+            <p> © 2025</p>
+        </footer>
+    <script src="./Page1.js"></script>
+  </body>
 </html>
+
