@@ -52,12 +52,14 @@ function startGame(level = 1) {
   
     // Create horizontal light rows (skip bottom row to avoid touching floor)
     for (let i = 0; i < house.numLayers - 1; i++) {
-      const rowY = tree.y + i * (tree.height / (house.numLayers - 1));
-      const rowWidth = (i ) / house.numLayers * tree.width;
+      const rowY = tree.y + i * (tree.height / (house.numLayers - 1)) + 50;
+      const taperRatio = (i + 1) / (house.numLayers - 1);
+      const rowWidth = (taperRatio * 0.8 + 0.1) * tree.width;
       const numLightsInRow = Math.max(3, Math.floor(rowWidth / 30));
       const rowLights = [];
       for (let j = 0; j < numLightsInRow; j++) {
-        const x = tree.x - rowWidth / 2 + j * (rowWidth / (numLightsInRow - 1));
+        const startX = tree.x + (tree.width - rowWidth) / 2;
+        const x = startX + j * (rowWidth / (numLightsInRow - 1));
         const color = primaryColors[Math.floor(Math.random() * primaryColors.length)];
         rowLights.push({ x, y: rowY, color, on: true, decay: 0 });
       }
