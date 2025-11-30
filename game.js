@@ -27,13 +27,18 @@ function startGame(level = 1) {
     const house = houses[level] || houses[1];
   
     // Tree
-    const tree = {
-      x: W/2,
-      y: H - 400,
-      width: 200,
-      height: 350,
+    const treeImage = new Image();
+    treeImage.src = "./Images/Tree.png";
+    let tree = {
+      x: W/3,
+      y: H - 440,
+      width: 300,
+      height: 400,
       layers: []
     };
+    treeImage.onload = () => {
+      drawTree();
+    }
   
     // Primary colors for lights
     const primaryColors = ["#ff0000", "#0000ff", "#ffff00", "#00ff00"]; // red, blue, yellow, green
@@ -134,22 +139,8 @@ function startGame(level = 1) {
     }
   
     function drawTree() {
-      // Trunk
-      ctx.fillStyle="#5b3a21";
-      ctx.fillRect(tree.x-25, tree.y+tree.height-50, 50, 50);
-  
-      // Triangle foliage
-      ctx.fillStyle="#0b6a2c";
-      ctx.beginPath();
-      ctx.moveTo(tree.x, tree.y); // top
-      ctx.lineTo(tree.x-tree.width/2, tree.y+tree.height-50);
-      ctx.lineTo(tree.x+tree.width/2, tree.y+tree.height-50);
-      ctx.closePath();
-      ctx.fill();
-  
-      // Star on top
-      drawStar(tree.x, tree.y-15, 5, 12, 6, "#ffdf00");
-  
+      ctx.drawImage(treeImage, tree.x, tree.y, tree.width, tree.height);
+      
       // Draw lights
       tree.layers.forEach(layer => {
         layer.forEach(light => {
@@ -159,29 +150,6 @@ function startGame(level = 1) {
           ctx.fill();
         });
       });
-    }
-  
-    function drawStar(cx, cy, spikes, outerRadius, innerRadius, color){
-      let rot=Math.PI/2*3;
-      let x=cx;
-      let y=cy;
-      let step=Math.PI/spikes;
-      ctx.beginPath();
-      ctx.moveTo(cx,cy-outerRadius);
-      for(let i=0;i<spikes;i++){
-        x=cx+Math.cos(rot)*outerRadius;
-        y=cy+Math.sin(rot)*outerRadius;
-        ctx.lineTo(x,y);
-        rot+=step;
-  
-        x=cx+Math.cos(rot)*innerRadius;
-        y=cy+Math.sin(rot)*innerRadius;
-        ctx.lineTo(x,y);
-        rot+=step;
-      }
-      ctx.closePath();
-      ctx.fillStyle=color;
-      ctx.fill();
     }
   
     function drawPlayer() {
