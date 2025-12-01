@@ -23,22 +23,18 @@
   <div class="top-bar">
     Current Level: <span id="levelLabel"></span>
   </div>
-  <div id="gameContainer">
-    <canvas id="gameCanvas" width="800" height="500"></canvas>
+  <div id="timerContainer">
+    <div id="timerBar"></div>
   </div>
+  <div id="gameMessage"></div>
+  <canvas id="gameCanvas" width="800" height="500"></canvas>
   <a href="index.html" class="btn">Back to Home</a>
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const level = Number(params.get("level")) || 1;
+    const level = 1; 
     document.getElementById("levelLabel").textContent = level;
-    window.addEventListener("load", () => {
-      if (typeof startGame === "function") {
-        startGame(level);
-      } 
-      else {
-        console.error("startGame(level) not found — is game.js loaded?");
-      }
-    });
+    window.onload = function() {
+      startGame(level); 
+    };
   </script>
 
   <script src="game.js"></script>
