@@ -1,3 +1,23 @@
+  const speedFactor = 0.85;
+  const lightDecayRate = 0.05;
+  const baseLevelTime = 20;
+  const basePlayerSpeed = 400;
+
+function getLevelSettings(level) {
+  const speedMultiplier = Math.pow(1 / speedFactor, level - 1);
+  const decayRate = lightDecayRate * speedMultiplier;
+  const timer = Math.max(10, baseLevelTime - (level - 1) * 1.5);
+  const playerSpeed = basePlayerSpeed + (level - 1) * 50;
+
+  return {
+    bg: level % 2 === 1 ? "#8B5E3C" : "#654321",
+    floor: level % 2 === 1 ? "#3E1E0E" : "#2B160C",
+    decayRate: decayRate,
+    timer: timer,
+    playerSpeed: playerSpeed,
+  };
+}
+
 function startGame(level = 1) {
   const canvas = document.getElementById("gameCanvas");
   const ctx = canvas.getContext("2d");
