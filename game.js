@@ -1,5 +1,5 @@
   const speedFactor = 0.85;
-  const lightDecayRate = 0.1;
+  const lightDecayRate = 0.01;
   const baseLevelTime = 20;
   const basePlayerSpeed = 400;
 
