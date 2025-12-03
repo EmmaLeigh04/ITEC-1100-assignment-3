@@ -68,7 +68,7 @@ body {
 
 header {
     padding:18px;
-    background:rgba(255,255,255,0.05)
+    background:rgba(255,255,255,0.05);
 }
 
 h1 { 
@@ -103,7 +103,7 @@ h1 {
     border-radius:30px;
     font-weight:bold;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 70px;
     cursor: pointer;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
