@@ -100,4 +100,16 @@ h1 {
 
 .video {
     border: #390404 8px solid;
+    border-radius: 10px;
+}
+
+.screens {
+    display: flex;
+}
+
+.screenshot {
+    width: 45%;
+    height: auto;
+    margin: 20px;
+    border-radius: 10px;
 }

@@ -100,12 +100,20 @@ h1 {
     background:#e74c3c;
     color:#fff;
     text-decoration:none;
-    border-radius:8px;
-    font-weight:bold
+    border-radius:30px;
+    font-weight:bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .btn:hover {
-    background:#c0392b
+    background:#c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(134, 15, 15, 0.6);
 }
 
 .instructions, .demo {
